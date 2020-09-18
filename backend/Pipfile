@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "==20.8b1"
+factory-boy = "*"
+ptpython = "*"
+pylint = "*"
+pytest = "*"
+pytest-django = "*"
+
+[packages]
+django = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
+dj-database-url = "*"
+google-cloud-vision = "*"
+gunicorn = "*"
+html2text = "*"
+pandas = "*"
+pdf2image = "*"
+psycopg2-binary = "*"
+requests = "*"
+scipy = "*"
+
+[requires]
+python_version = "3.8"

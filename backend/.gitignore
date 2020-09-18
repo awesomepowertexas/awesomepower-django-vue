@@ -1,0 +1,19 @@
+# IDE
+.vscode
+.idea
+
+# Cache
+__pycache__
+.pytest_cache/
+
+# Local environment variables
+.env
+
+# Test coverage
+.coverage
+
+# Certificates
+*.pem
+*.key
+*.crt
+*.priv

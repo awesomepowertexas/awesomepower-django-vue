@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Environment
+.env
+
+# nuxt.js build output
+.nuxt
+
+# Nuxt generate
+dist
+
+# Logs
+logs
+*.log
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Coverage directory used by tools like istanbul
+coverage
+.nyc_output
+
+# Netlify
+.netlify
+
+# IDE
+.idea
+
+# Mac OSX
+.DS_Store
+
+# Certificates
+*.pem
+*.key
+*.crt
+*.priv

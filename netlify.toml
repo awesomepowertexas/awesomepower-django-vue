@@ -1,0 +1,29 @@
+[build]
+  base = "web/"
+  command = "yarn generate"
+  publish = "dist/"
+  ignore = "false"
+
+[context.production.environment]
+  API_BASE_URL = 'https://awesomepowertexasapi.com'
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = """
+    default-src 'none';
+    connect-src https://awesomepowertexasapi.com https://*.awesomepowertexasapi.com https://*.herokuapp.com;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    img-src 'self' data:;
+    manifest-src 'self';
+    frame-ancestors 'none'"""
+
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+[[plugins]]
+  package = "/netlify/plugins/api-base-url-env"

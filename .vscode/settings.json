@@ -1,0 +1,45 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "[svg]": {
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "eslint.packageManager": "yarn",
+  "eslint.validate": ["javascript", "vue"],
+  "git.autofetch": true,
+  "npm.packageManager": "yarn",
+  "python.envFile": "${workspaceFolder}/backend/.env",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintArgs": [
+    "--disable=C, E1101",
+    "--load-plugins=pylint_django"
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.terminal.activateEnvironment": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestArgs": ["backend"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false
+}

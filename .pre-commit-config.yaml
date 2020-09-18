@@ -1,0 +1,46 @@
+default_language_version:
+  python: python3.8
+default_stages:
+  - commit
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: no-commit-to-branch
+        args:
+          - "--branch"
+          - "master"
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+        args:
+          - "--ignore=E501,W503"
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v7.9.0
+    hooks:
+      - id: eslint
+        types:
+          - file
+        files: \.(js|vue)$
+        args:
+          - "--config"
+          - "web/.eslintrc.js"
+          - "--ext"
+          - ".js,.vue"
+          - "--ignore-path"
+          - "web/.gitignore"
+        additional_dependencies:
+          - "eslint@7.9.0"
+          - "babel-eslint@10.1.0"
+          - "eslint-plugin-vue@6.2.2"
+          - "eslint-config-prettier@6.11.0"
+  - repo: https://github.com/prettier/prettier
+    rev: 2.1.1
+    hooks:
+      - id: prettier
