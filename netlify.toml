@@ -12,11 +12,11 @@
   [headers.values]
     Content-Security-Policy = """
     default-src 'none';
-    connect-src https://awesomepowertexasapi.com https://*.awesomepowertexasapi.com https://*.herokuapp.com;
-    script-src 'self' 'unsafe-inline';
+    connect-src https://awesomepowertexasapi.com https://*.awesomepowertexasapi.com https://*.herokuapp.com https://www.google-analytics.com;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
-    img-src 'self' data:;
+    img-src 'self' data: https://www.google-analytics.com;
     manifest-src 'self';
     frame-ancestors 'none'"""
 
