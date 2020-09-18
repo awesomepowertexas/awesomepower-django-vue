@@ -16,7 +16,7 @@
     script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
-    img-src 'self' data:;
+    img-src 'self' data: https://www.google-analytics.com;
     manifest-src 'self';
     frame-ancestors 'none'"""
 
