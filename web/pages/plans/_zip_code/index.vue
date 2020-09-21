@@ -17,6 +17,7 @@
         class="bg-blue-700 rounded-lg font-bold text-sm text-white flex flex-wrap justify-between mt-2 px-4 pb-4"
       >
         <star-group
+          id="input-stars"
           :editable="true"
           :rating="filter.rating"
           light-fill
@@ -115,7 +116,6 @@ export default {
       rating: 1,
       term: 12,
       renewable: false,
-      prepaid: false,
     },
     orderBy: 'med',
   }),
@@ -132,7 +132,9 @@ export default {
           this.filter.term !== 'all' ? o.term === this.filter.term : o,
         )
         .filter((o) => (this.filter.renewable ? o.percent_renewable >= 99 : o))
-        .filter((o) => (this.filter.prepaid ? o.is_prepaid : o))
+
+      // no prepaid plans
+      plans = plans.filter((o) => !o.is_prepaid)
 
       // fixed rate plans
       plans = plans.filter((o) => o.rate_type === 1)
@@ -185,10 +187,8 @@ export default {
     },
   },
 
-  head() {
-    return {
-      title: 'Plans',
-    }
+  head: {
+    title: 'Plans',
   },
 }
 </script>

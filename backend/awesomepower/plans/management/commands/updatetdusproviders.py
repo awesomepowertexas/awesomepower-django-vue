@@ -11,9 +11,16 @@ from awesomepower.plans.tdus import TDUS
 class Command(BaseCommand):
     help = "Update the TDU and provider tables"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--skip-ratings",
+            action="store_true",
+            help="Skip request to retrieve provider ratings",
+        )
+
     def handle(self, *args, **options):
         update_tdu_table()
-        update_provider_table()
+        update_provider_table(skip_ratings=options["skip_ratings"])
 
 
 def update_tdu_table():
@@ -26,7 +33,7 @@ def update_tdu_table():
             Tdu.objects.create(**tdu_dict)
 
 
-def update_provider_table():
+def update_provider_table(skip_ratings):
     # add new providers from the modules to the database
     for module in provider_modules:
         if not Provider.objects.filter(name=module.name).exists():
@@ -40,13 +47,14 @@ def update_provider_table():
         provider.save()
 
     # update provider ratings
-    plan_df = get_ptc_plan_df()
+    if not skip_ratings:
+        plan_df = get_ptc_plan_df()
 
-    rating_df = plan_df.loc[:, ["[RepCompany]", "[Rating]"]]
-    rating_dict = {rating[0]: rating[1] for rating in rating_df.values.tolist()}
+        rating_df = plan_df.loc[:, ["[RepCompany]", "[Rating]"]]
+        rating_dict = {rating[0]: rating[1] for rating in rating_df.values.tolist()}
 
-    for provider_name, rating in rating_dict.items():
-        provider = Provider.objects.filter(ptc_name=provider_name).first()
-        if provider and not math.isnan(rating):
-            provider.rating = rating
-            provider.save()
+        for provider_name, rating in rating_dict.items():
+            provider = Provider.objects.filter(ptc_name=provider_name).first()
+            if provider and not math.isnan(rating):
+                provider.rating = rating
+                provider.save()

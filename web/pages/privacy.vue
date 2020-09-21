@@ -306,10 +306,8 @@
 
 <script>
 export default {
-  head() {
-    return {
-      title: 'Privacy Policy',
-    }
+  head: {
+    title: 'Privacy Policy',
   },
 }
 </script>

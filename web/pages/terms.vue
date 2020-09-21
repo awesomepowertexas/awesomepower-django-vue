@@ -141,10 +141,8 @@
 
 <script>
 export default {
-  head() {
-    return {
-      title: 'Terms and Conditions',
-    }
+  head: {
+    title: 'Terms and Conditions',
   },
 }
 </script>

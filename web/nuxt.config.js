@@ -1,6 +1,3 @@
-import path from 'path'
-import fs from 'fs'
-
 const config = {
   target: 'static',
   loading: false,
@@ -102,19 +99,6 @@ const config = {
       { rel: 'manifest', href: '/site.webmanifest' },
     ],
   },
-}
-
-if (process.env.NODE_ENV === 'development') {
-  config.server = {
-    https: {
-      key: fs.readFileSync(
-        path.resolve(__dirname, 'local.awesomepowertexas.com-key.pem'),
-      ),
-      cert: fs.readFileSync(
-        path.resolve(__dirname, 'local.awesomepowertexas.com.pem'),
-      ),
-    },
-  }
 }
 
 if (process.env.BABEL_ENV === 'test') {

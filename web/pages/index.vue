@@ -100,7 +100,7 @@
             <p>
               Yep! Awesome Power is open source; check out the codebase
               <a
-                href="https://github.com/awesomepowertexas"
+                href="https://github.com/awesomepowertexas/awesomepower"
                 class="font-bold"
                 target="_blank"
                 >here</a
@@ -227,12 +227,6 @@ export default {
     openFaq: '',
   }),
 
-  watch: {
-    $route() {
-      this.checkHash()
-    },
-  },
-
   mounted() {
     this.checkHash()
   },
@@ -247,10 +241,8 @@ export default {
     },
   },
 
-  head() {
-    return {
-      title: 'Find a cheap electricity plan, headache free',
-    }
+  head: {
+    title: 'Find a cheap electricity plan, headache free',
   },
 }
 </script>

@@ -1,0 +1,26 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 100
+        informational: true
+      backend:
+        flags:
+          - backend
+      web:
+        flags:
+          - web
+
+flags:
+  backend:
+    paths:
+      - backend/
+  web:
+    paths:
+      - web/
+
+comment: false
+
+parsers:
+  javascript:
+    enable_partials: yes

@@ -11,5 +11,5 @@ requireComponent.keys().forEach((fileName) => {
   const componentName = fileName.substring(2, fileName.length - 4)
   const componentConfig = requireComponent(fileName)
 
-  Vue.component(componentName, componentConfig.default || componentConfig)
+  Vue.component(componentName, componentConfig.default)
 })
