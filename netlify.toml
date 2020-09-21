@@ -5,7 +5,8 @@
   ignore = "false"
 
 [context.production.environment]
-  API_BASE_URL = 'https://awesomepowertexasapi.com'
+  API_BASE_URL = "https://awesomepowertexasapi.com"
+  GTM_ID = "GTM-5MTHZW4"
 
 [[headers]]
   for = "/*"

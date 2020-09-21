@@ -17,7 +17,7 @@ const config = {
     },
   },
   gtm: {
-    id: 'GTM-5MTHZW4',
+    id: process.env.GTM_ID,
     pageTracking: true,
   },
   sitemap: {
