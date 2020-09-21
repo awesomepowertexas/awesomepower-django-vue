@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgres://awesomepower:awesomepower@localhost:5432/awesomepower
-      DJANGO_DEBUG: TRUE
+      DJANGO_DEBUG: "TRUE"
       DJANGO_SECRET_KEY: dev
     services:
       postgres:
