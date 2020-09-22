@@ -1,2 +1,2 @@
 [run]
-omit = */tests/*, awesomepower/plans/providers/*
+omit = */tests.py, */management/commands/*, awesomepower/wsgi.py, awesomepower/plans/providers/*

@@ -42,7 +42,7 @@ jobs:
         run: gunicorn awesomepower.wsgi:application --daemon
       - name: Run pytest
         working-directory: backend
-        run: pytest --cov-report=xml --cov=awesomepower
+        run: pytest --reuse-db --cov-report=xml --cov=awesomepower
       - uses: actions/setup-node@v2-beta
         with:
           node-version: 14.9.0
