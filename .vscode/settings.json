@@ -29,6 +29,7 @@
   "eslint.validate": ["javascript", "vue"],
   "git.autofetch": true,
   "npm.packageManager": "yarn",
+  "python.analysis.extraPaths": ["backend"],
   "python.envFile": "${workspaceFolder}/backend/.env",
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
@@ -37,6 +38,7 @@
     "--load-plugins=pylint_django"
   ],
   "python.linting.pylintEnabled": true,
+  "python.sortImports.args": ["--src-path=${workspaceFolder}/backend"],
   "python.terminal.activateEnvironment": false,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestArgs": ["backend"],

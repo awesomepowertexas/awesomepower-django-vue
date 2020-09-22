@@ -6,6 +6,7 @@ try:
     from ptpython.repl import embed
 
     def ptpython(self, options):
+        os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
         history_filename = os.path.expanduser("~/.ptpython_history")
         embed(globals(), locals(), vi_mode=False, history_filename=history_filename)
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-end px-5 md:px-12">
+  <div id="header" class="flex items-end px-5 md:px-12">
     <div
       class="z-20 w-full max-w-6xl flex items-center justify-between mx-auto"
     >
@@ -30,7 +30,7 @@ export default {
       if (this.$route.name === 'index') {
         document.getElementById('faqs').scrollIntoView({ behavior: 'smooth' })
       } else {
-        this.$router.push({ name: 'index', hash: '#faqs' })
+        this.$router.push({ path: '/', hash: '#faqs' })
       }
     },
   },

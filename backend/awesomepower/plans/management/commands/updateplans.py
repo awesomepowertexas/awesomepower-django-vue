@@ -65,7 +65,7 @@ def add_ptc_plans_to_db():
         plan.is_active = bool(str(plan.ptc_idkey) in plan_df["ptc_idkey"].values)
         try:
             plan.save()
-        except ValidationError as e:
+        except ValidationError:
             plan.delete()
 
     for plan_dict in ptc_plans:

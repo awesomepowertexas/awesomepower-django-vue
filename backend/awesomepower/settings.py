@@ -7,7 +7,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = os.getenv("DJANGO_DEBUG") == "TRUE"
-ALLOWED_HOSTS = [".awesomepowertexasapi.com", ".herokuapp.com"]
+ALLOWED_HOSTS = [".awesomepowertexasapi.com", ".herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -36,7 +36,7 @@ WSGI_APPLICATION = "awesomepower.wsgi.application"
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = not DEBUG
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 31536000
@@ -79,4 +79,5 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_REGEX_WHITELIST = [
     r"^https://([\w-]+\.)?awesomepowertexas\.com(:3000)?$",
     r"^https://(deploy-preview-[\d]+--)?awesomepower\.netlify\.app$",
+    r"^http://localhost:3000$",
 ]

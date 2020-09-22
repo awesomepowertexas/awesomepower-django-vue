@@ -11,6 +11,8 @@ __pycache__
 
 # Test coverage
 .coverage
+coverage.xml
+htmlcov/
 
 # Certificates
 *.pem

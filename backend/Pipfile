@@ -9,6 +9,7 @@ factory-boy = "*"
 ptpython = "*"
 pylint = "*"
 pytest = "*"
+pytest-cov = "*"
 pytest-django = "*"
 
 [packages]

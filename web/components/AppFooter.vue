@@ -1,5 +1,5 @@
 <template>
-  <div class="md:h-40 bg-gray-900 text-white text-sm p-10">
+  <div id="footer" class="md:h-40 bg-gray-900 text-white text-sm p-10">
     <div
       class="h-full max-w-4xl flex flex-col md:flex-row md:items-center justify-between mx-auto"
     >
@@ -17,7 +17,7 @@
         </a>
 
         <a
-          href="https://github.com/awesomepowertexas"
+          href="https://github.com/awesomepowertexas/awesomepower"
           target="_blank"
           class="ml-4"
         >

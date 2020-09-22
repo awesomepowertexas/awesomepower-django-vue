@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="flex items-start cursor-pointer mt-6" @click="$emit('toggle')">
+    <div
+      class="faq-question flex items-start cursor-pointer mt-6"
+      @click="$emit('toggle')"
+    >
       <div class="w-8 flex-shrink-0 md:pt-1">
         <font-awesome-icon
           :class="{ flipped: isOpen }"
