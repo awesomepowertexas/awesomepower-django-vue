@@ -19,7 +19,7 @@ TDUS = [
         "name": "Centerpoint",
         "ptc_name": "CENTERPOINT ENERGY HOUSTON ELECTRIC LLC",
         "charges": [Decimal("4.39")],
-        "rates": [Decimal("0.042308"), Decimal("0.037435")],
+        "rates": [Decimal("0.042359"), Decimal("0.042308")],
     },
     {
         "name": "Oncor",
