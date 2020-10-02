@@ -65,11 +65,9 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           file: ./backend/coverage.xml
-          flags: backend
           fail_ci_if_error: true
       - name: Upload web to Codecov
         uses: codecov/codecov-action@v1
         with:
           file: ./web/coverage/coverage-final.json
-          flags: web
           fail_ci_if_error: true

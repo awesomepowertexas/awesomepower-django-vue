@@ -125,7 +125,7 @@ class Plan(BaseModel):
     def __str__(self):
         return self.name
 
-    def set_efl_numbers(self):
+    def set_efl_numbers(self):  # pragma: no cover
         # make request to EFL PDF URL
         try:
             response = requests.get(

@@ -1,6 +1,5 @@
 from decimal import Decimal
 
-import pytest
 from pandas.core.frame import DataFrame
 
 from awesomepower.plans.business_logic import (
@@ -11,7 +10,6 @@ from awesomepower.plans.business_logic import (
 from awesomepower.plans.models import Plan, Provider, Tdu
 
 
-@pytest.mark.django_db
 def test_models():
     tdu = Tdu.objects.first()
     provider = Provider.objects.first()
@@ -61,7 +59,6 @@ def test_models():
     assert plan.high_usage_rate is None
 
 
-@pytest.mark.django_db
 def test_list_all_plans(client):
     response = client.get("/plans")
 
@@ -70,7 +67,6 @@ def test_list_all_plans(client):
     assert len(response.json()) == len(Plan.objects.all())
 
 
-@pytest.mark.django_db
 def test_list_plans_valid_zip(client):
     zip_code = "75229"
     response = client.get(f"/plans?zip_code={zip_code}")
@@ -82,7 +78,6 @@ def test_list_plans_valid_zip(client):
     )
 
 
-@pytest.mark.django_db
 def test_list_plans_invalid_zip(client):
     zip_code = "00000"
     response = client.get(f"/plans?zip_code={zip_code}")
