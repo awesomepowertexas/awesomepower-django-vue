@@ -1,24 +1,9 @@
 coverage:
   status:
     project:
-      default: off
-      backend:
+      default:
         target: 100
-        flags:
-          - backend
-      web:
-        target: 100
-        flags:
-          - web
     patch: off
-
-flags:
-  backend:
-    paths:
-      - backend/
-  web:
-    paths:
-      - web/
 
 comment: false
 
