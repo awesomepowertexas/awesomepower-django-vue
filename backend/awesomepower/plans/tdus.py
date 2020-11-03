@@ -31,6 +31,6 @@ TDUS = [
         "name": "TNMP",
         "ptc_name": "TEXAS-NEW MEXICO POWER COMPANY",
         "charges": [Decimal("7.85")],
-        "rates": [Decimal("0.049093"), Decimal("0.041684")],
+        "rates": [Decimal("0.050653"), Decimal("0.049093")],
     },
 ]
