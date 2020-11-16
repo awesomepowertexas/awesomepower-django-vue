@@ -4,30 +4,19 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
-  extends: ['eslint:recommended', 'plugin:vue/recommended', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'prettier',
+    'prettier/vue',
+  ],
   rules: {
     camelcase: 'off',
-    'no-empty': 'off',
-    'no-unused-vars': 'off',
-    'vue/html-closing-bracket-newline': 'off',
-    'vue/html-indent': 'off',
-    'vue/html-self-closing': [
+    'no-unused-vars': [
       'error',
-      {
-        html: {
-          void: 'always',
-          normal: 'always',
-          component: 'always',
-        },
-        svg: 'always',
-        math: 'always',
-      },
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
-    'vue/max-attributes-per-line': 'off',
+    'vue/html-self-closing': ['error', { html: { void: 'any' } }],
     'vue/require-default-prop': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
   },
 }

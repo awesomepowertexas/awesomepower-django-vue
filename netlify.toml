@@ -1,12 +1,16 @@
 [build]
   base = "web/"
-  command = "yarn generate"
+  command = "yarn build"
   publish = "dist/"
   ignore = "false"
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 [context.production.environment]
-  API_BASE_URL = "https://awesomepowertexasapi.com"
-  GTM_ID = "GTM-5MTHZW4"
+  VITE_API_BASE_URL = "https://awesomepowertexasapi.com"
 
 [[headers]]
   for = "/*"

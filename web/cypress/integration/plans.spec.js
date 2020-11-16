@@ -1,3 +1,7 @@
+before(() => {
+  cy.seed()
+})
+
 describe('Plans page', () => {
   beforeEach(() => {
     cy.server()

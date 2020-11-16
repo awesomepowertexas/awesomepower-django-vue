@@ -1,14 +1,11 @@
 # Dependency directories
 node_modules/
 
+# Build
+dist/
+
 # Environment
-.env
-
-# nuxt.js build output
-.nuxt
-
-# Nuxt generate
-dist
+*.local
 
 # Logs
 logs

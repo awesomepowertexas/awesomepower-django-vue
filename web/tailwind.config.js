@@ -1,4 +1,7 @@
 module.exports = {
+  purge: {
+    content: ['./index.html', './src/**/*.vue', './src/**/*.js'],
+  },
   theme: {
     colors: {
       transparent: 'transparent',
@@ -42,8 +45,7 @@ module.exports = {
       },
     },
     boxShadow: {
-      default:
-        '0 10px 25px 0 rgba(0, 0, 0, 0.15), 0 5px 12px 0 rgba(0, 0, 0, 0.05)',
+      md: '0 2px 6px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.1)',
     },
     fontFamily: {
       'open-sans': ["'Open Sans'", 'sans-serif'],
@@ -52,10 +54,10 @@ module.exports = {
     extend: {
       borderRadius: {
         xl: '0.75rem',
-        '2xl': '1rem',
-        '3xl': '1.5rem',
       },
       spacing: {
+        '2px': '2px',
+        '3px': '3px',
         14: '3.5rem',
         80: '20rem',
         96: '24rem',
