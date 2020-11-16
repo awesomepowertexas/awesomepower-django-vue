@@ -1,6 +1,6 @@
 // From https://github.com/cypress-io/cypress/issues/877#issuecomment-538708750
-const isInViewport = (_chai, utils) => {
-  function assertIsInViewport(options) {
+const isInViewport = (_chai, _utils) => {
+  function assertIsInViewport(_options) {
     const subject = this._obj
 
     const bottom = Cypress.$(cy.state('window')).height()

@@ -22,7 +22,7 @@ repos:
         args:
           - "--ignore=E203,E501,W503"
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.9.0
+    rev: v7.13.0
     hooks:
       - id: eslint
         types:
@@ -36,11 +36,10 @@ repos:
           - "--ignore-path"
           - "web/.gitignore"
         additional_dependencies:
-          - "eslint@7.9.0"
-          - "babel-eslint@10.1.0"
-          - "eslint-plugin-vue@6.2.2"
-          - "eslint-config-prettier@6.11.0"
-  - repo: https://github.com/prettier/prettier
-    rev: 2.1.1
+          - "eslint@7.13.0"
+          - "eslint-plugin-vue@7.1.0"
+          - "eslint-config-prettier@6.15.0"
+  - repo: https://github.com/prettier/pre-commit
+    rev: v2.1.2
     hooks:
       - id: prettier

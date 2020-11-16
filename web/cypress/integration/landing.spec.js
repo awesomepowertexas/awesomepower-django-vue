@@ -51,7 +51,7 @@ describe('Intro section', () => {
     cy.location('pathname').should('eq', '/')
   })
 
-  it('alerts on server error', () => {
+  it('errors on server error', () => {
     cy.route({
       method: 'GET',
       url: '/plans?zip_code=*',
@@ -59,23 +59,18 @@ describe('Intro section', () => {
       response: {},
     }).as('getPlans')
 
-    const alertStub = cy.stub()
-    cy.on('window:alert', alertStub)
-
     const zipCode = '75229'
-    const errorMessage = 'Sorry, something went wrong.'
 
     cy.visit('/')
 
     cy.get('#intro-section input[type=text]').click().type(zipCode)
 
-    cy.get('#intro-section input[type=text]').should('be.disabled')
     cy.get('#intro-section button').should('not.exist')
 
     cy.wait('@getPlans').should((xhr) => {
       expect(xhr.status).to.equal(500)
-      expect(alertStub).to.be.calledWith(errorMessage)
     })
+    cy.contains('Sorry, something went wrong')
   })
 })
 
@@ -139,6 +134,9 @@ describe('Footer', () => {
     cy.get('#footer').contains('Privacy').click()
 
     cy.location('pathname').should('eq', '/privacy')
+
+    cy.go('back')
+    cy.go('forward')
 
     // FAQs from privacy
     cy.get('#footer').contains('FAQs').click()
