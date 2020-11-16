@@ -1,3 +1,7 @@
+before(() => {
+  cy.seed()
+})
+
 describe('Intro section', () => {
   beforeEach(() => {
     cy.server()

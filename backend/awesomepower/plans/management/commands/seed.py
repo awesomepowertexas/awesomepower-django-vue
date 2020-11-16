@@ -11,6 +11,10 @@ class Command(BaseCommand):
     help = "Seeds the database"
 
     def handle(self, *args, **options):
+        print("Seeding database...")
+
+        call_command("flush", "--no-input")
+
         call_command("updatetdusproviders", "--skip-ratings")
 
         for tdu in Tdu.objects.all():
@@ -24,3 +28,5 @@ class Command(BaseCommand):
         for provider in Provider.objects.all():
             provider.rating = random.randint(1, 5)
             provider.save()
+
+        print("Database seeded successfully")
