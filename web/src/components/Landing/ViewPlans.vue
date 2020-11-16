@@ -71,8 +71,6 @@
 </template>
 
 <script>
-import api from '/src/plugins/api'
-
 export default {
   data: function () {
     return {
@@ -111,7 +109,7 @@ export default {
 
       let response
       try {
-        response = await api.get(`/plans?zip_code=${this.zipCode}`)
+        response = await this.$api.get(`/plans?zip_code=${this.zipCode}`)
       } catch (error) {
         this.error = true
         this.loading = false

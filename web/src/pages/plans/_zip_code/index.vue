@@ -99,7 +99,6 @@
 </template>
 
 <script>
-import api from '/src/plugins/api'
 import PlanCard from '/src/components/Plans/PlanCard.vue'
 import StarGroup from '/src/components/Plans/StarGroup.vue'
 
@@ -172,7 +171,7 @@ export default {
 
   methods: {
     async getPlans() {
-      const response = await api.get(
+      const response = await this.$api.get(
         `/plans?zip_code=${this.$route.params.zip_code}`,
       )
 

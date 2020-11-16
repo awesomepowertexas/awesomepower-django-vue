@@ -3,7 +3,6 @@
     <svg-star
       v-for="index of [1, 2, 3, 4, 5]"
       :key="index"
-      src="/src/assets/svg/star.svg"
       :class="[
         filled >= index ? 'filled' : 'text-transparent',
         editable ? 'cursor-pointer' : '',
