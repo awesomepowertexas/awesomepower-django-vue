@@ -1,5 +1,5 @@
 <template>
-  <div class="plan-card bg-white rounded-xl shadow-md p-4 md:p-6">
+  <div class="plan-card bg-white rounded-xl shadow p-4 md:p-6">
     <!-- Desktop -->
     <div class="hidden md:flex">
       <div class="w-40 flex-shrink-0 flex flex-col items-center">

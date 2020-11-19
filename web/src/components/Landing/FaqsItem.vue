@@ -7,7 +7,7 @@
       <div class="w-8 flex-shrink-0 md:pt-1">
         <font-awesome-icon
           :class="{ 'transform -rotate-180': isOpen }"
-          class="text-blue-500 transition duration-300"
+          class="text-blue-500 transition"
           icon="chevron-circle-down"
         />
       </div>
@@ -22,7 +22,7 @@
     <transition-expand>
       <div
         v-if="isOpen"
-        class="text-gray-700 text-sm md:text-base leading-loose md:leading-loose pl-8"
+        class="text-gray-700 text-sm leading-loose md:text-base md:leading-loose pl-8"
       >
         <div class="h-4" />
         <slot name="answer" />

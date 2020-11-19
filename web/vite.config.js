@@ -1,4 +1,4 @@
-const istanbul = require('vite-plugin-istanbul')
+const istanbul = require('./vite-plugin-istanbul')
 
 module.exports = {
   plugins: [

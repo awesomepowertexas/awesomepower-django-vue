@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-md bg-blue-800 text-center rounded-xl shadow-md p-5">
+  <div class="w-full max-w-md bg-blue-800 text-center rounded-xl shadow p-5">
     <p
       class="h-10 flex items-center justify-center font-solway font-bold text-white md:text-xl uppercase"
     >

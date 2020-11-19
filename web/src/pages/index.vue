@@ -123,7 +123,7 @@
             >
               <img
                 src="/src/assets/img/usage-weight.png"
-                class="absolute w-11/12 md:rounded-lg md:shadow-md"
+                class="absolute w-11/12 md:rounded-lg md:shadow"
               />
             </div>
 
