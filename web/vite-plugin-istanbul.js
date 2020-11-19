@@ -45,7 +45,7 @@ function createTransform(opts) {
 const serverPlugin = ({ app }) => {
   app.use(async (ctx, next) => {
     if (ctx.path === '/__coverage__') {
-      const coverage = global.__coverage__ ?? null
+      const coverage = global.__coverage__ || null
 
       ctx.status = 200
       ctx.type = 'json'
