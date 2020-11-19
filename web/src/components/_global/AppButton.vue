@@ -1,5 +1,8 @@
 <template>
-  <button :disabled="loading" class="btn">
+  <button
+    :disabled="loading"
+    class="h-10 inline-flex items-center justify-center rounded px-8 font-bold text-white cursor-pointer whitespace-nowrap transition"
+  >
     <slot v-if="!loading" />
 
     <loading-spinner v-else />
@@ -15,14 +18,7 @@ export default {
 </script>
 
 <style scoped lang="postcss">
-.btn {
-  @apply flex items-center justify-center bg-gray-500 font-bold text-white cursor-pointer rounded h-10 px-8;
-  transition: background-color 0.3s, filter 0.3s, opacity 0.3s;
-}
-.btn:hover {
-  @apply bg-gray-600;
-}
-.btn:disabled {
+button:disabled {
   @apply cursor-not-allowed opacity-75;
 }
 

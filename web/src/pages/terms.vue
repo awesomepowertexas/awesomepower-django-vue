@@ -148,30 +148,21 @@ export default {
 </script>
 
 <style scoped lang="postcss">
+p,
+li {
+  @apply text-sm leading-loose md:text-base md:leading-loose text-gray-700;
+}
+
 p {
-  @apply text-sm text-gray-700 mt-4;
-  @apply leading-loose !important;
+  @apply mt-4;
+}
+
+li {
+  @apply mt-2 ml-10;
 }
 
 li > p {
   @apply mt-0;
-}
-
-@screen md {
-  p {
-    @apply text-base;
-  }
-}
-
-li {
-  @apply text-sm text-gray-700 mt-2 ml-10;
-  @apply leading-loose !important;
-}
-
-@screen md {
-  li {
-    @apply text-base;
-  }
 }
 
 li:before {
@@ -184,33 +175,15 @@ li:before {
 }
 
 h1 {
-  @apply font-solway font-bold text-2xl;
-}
-
-@screen md {
-  h1 {
-    @apply text-4xl;
-  }
+  @apply font-solway font-bold text-2xl md:text-4xl;
 }
 
 h2 {
-  @apply font-solway font-bold text-xl mt-8;
-}
-
-@screen md {
-  h2 {
-    @apply text-3xl mt-12;
-  }
+  @apply font-solway font-bold text-xl md:text-3xl mt-8 md:mt-12;
 }
 
 h3 {
-  @apply font-solway font-bold text-lg mt-6;
-}
-
-@screen md {
-  h3 {
-    @apply text-xl;
-  }
+  @apply font-solway font-bold text-lg md:text-xl mt-6;
 }
 
 h4 {

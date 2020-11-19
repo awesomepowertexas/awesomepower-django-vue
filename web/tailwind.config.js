@@ -1,7 +1,4 @@
 module.exports = {
-  purge: {
-    content: ['./index.html', './src/**/*.vue', './src/**/*.js'],
-  },
   theme: {
     colors: {
       transparent: 'transparent',
@@ -45,7 +42,7 @@ module.exports = {
       },
     },
     boxShadow: {
-      md: '0 2px 6px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.1)',
+      DEFAULT: '0 2px 6px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.1)',
     },
     fontFamily: {
       'open-sans': ["'Open Sans'", 'sans-serif'],
@@ -66,10 +63,9 @@ module.exports = {
       },
     },
   },
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
   variants: {},
   plugins: [],
+  purge: {
+    content: ['./index.html', './src/**/*.vue', './src/**/*.js'],
+  },
 }
