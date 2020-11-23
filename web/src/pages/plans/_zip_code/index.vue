@@ -27,14 +27,9 @@
 
         <div class="flex items-center mt-4">
           <select id="select-term" v-model="filter.term" class="text-gray-900">
-            <option value="all">All</option>
-            <option :value="1">1</option>
-            <option :value="3">3</option>
-            <option :value="6">6</option>
-            <option :value="12">12</option>
-            <option :value="18">18</option>
-            <option :value="24">24</option>
-            <option :value="36">36</option>
+            <option v-for="option of termOptions" :key="option" :value="option">
+              {{ option }}
+            </option>
           </select>
 
           <label for="select-term" class="ml-1">month term</label>
@@ -125,6 +120,10 @@ export default {
   },
 
   computed: {
+    termOptions() {
+      return ['All', 1, 3, 6, 12, 18, 24, 36]
+    },
+
     filteredPlans() {
       // deep clone
       let plans = this.plans.map((o) => Object.assign({}, o))
@@ -133,7 +132,9 @@ export default {
       plans = plans
         .filter((o) => o.provider.rating >= this.filter.rating)
         .filter((o) =>
-          this.filter.term !== 'all' ? o.term === this.filter.term : o,
+          this.filter.term !== 'All'
+            ? o.term === parseInt(this.filter.term)
+            : o,
         )
         .filter((o) => (this.filter.renewable ? o.percent_renewable >= 99 : o))
 

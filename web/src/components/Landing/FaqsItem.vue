@@ -36,6 +36,7 @@ export default {
   props: {
     isOpen: Boolean,
   },
+
   emits: ['toggle'],
 }
 </script>

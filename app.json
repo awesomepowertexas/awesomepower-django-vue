@@ -11,6 +11,9 @@
       "url": "heroku/python"
     }
   ],
+  "scripts": {
+    "postdeploy": "python manage.py seed"
+  },
   "env": {
     "PROJECT_PATH": {
       "value": "backend"

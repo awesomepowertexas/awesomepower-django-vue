@@ -43,7 +43,7 @@ describe('Plans page', () => {
     })
 
     cy.get('#select-term').select('1')
-    cy.get('#select-term').select('all')
+    cy.get('#select-term').select('All')
     cy.get('#input-renewable').check()
     cy.get('#input-stars').last().click()
   })

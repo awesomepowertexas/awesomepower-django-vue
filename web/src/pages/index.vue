@@ -192,16 +192,14 @@
 
             <p class="mt-4">
               Unfortunately, this meant that Awesome Power’s integration with
-              Smart Meter Texas was broken, and I (Michael) haven’t had time to
-              integrate Awesome Power with the new system. So instead, I
-              simplified Awesome Power to only require a zip code to find the
-              cheapest plans.
+              Smart Meter Texas was broken. So, we simplified Awesome Power to
+              only require a zip code to find the cheapest plans.
             </p>
 
             <p class="mt-4">
-              If you’d like access to your data from the old Awesome Power
-              website, shoot me an email at michael@awesomepowertexas.com, and
-              I’ll send it over to you.
+              If there's anything else that hasn't been answered in these FAQs,
+              shoot me an email at michael@awesomepowertexas.com, and I'll try
+              to get back to you.
             </p>
           </template>
         </faqs-item>
