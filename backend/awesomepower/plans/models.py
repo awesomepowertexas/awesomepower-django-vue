@@ -167,7 +167,7 @@ class Plan(BaseModel):
 
             # run document text detection in GCP
             vision_client = vision.ImageAnnotatorClient()
-            vision_image = vision.types.Image(content=image_bytesio.getvalue())
+            vision_image = vision.Image(content=image_bytesio.getvalue())
             try:
                 response = vision_client.document_text_detection(
                     image=vision_image, retry=retry.Retry()
