@@ -19,18 +19,18 @@ TDUS = [
         "name": "Centerpoint",
         "ptc_name": "CENTERPOINT ENERGY HOUSTON ELECTRIC LLC",
         "charges": [Decimal("4.39")],
-        "rates": [Decimal("0.042359"), Decimal("0.042308")],
+        "rates": [Decimal("0.042723"), Decimal("0.042359")],
     },
     {
         "name": "Oncor",
         "ptc_name": "ONCOR ELECTRIC DELIVERY COMPANY",
         "charges": [Decimal("3.42")],
-        "rates": [Decimal("0.039220"), Decimal("0.035778")],
+        "rates": [Decimal("0.038925"), Decimal("0.039220")],
     },
     {
         "name": "TNMP",
         "ptc_name": "TEXAS-NEW MEXICO POWER COMPANY",
         "charges": [Decimal("7.85")],
-        "rates": [Decimal("0.050653"), Decimal("0.049093")],
+        "rates": [Decimal("0.049093"), Decimal("0.050653")],
     },
 ]
