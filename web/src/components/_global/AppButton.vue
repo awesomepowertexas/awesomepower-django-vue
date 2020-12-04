@@ -11,6 +11,8 @@
 
 <script>
 export default {
+  name: 'AppButton',
+
   props: {
     loading: Boolean,
   },
