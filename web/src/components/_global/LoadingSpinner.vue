@@ -30,6 +30,8 @@
 
 <script>
 export default {
+  name: 'LoadingSpinner',
+
   props: {
     size: {
       type: Number,
