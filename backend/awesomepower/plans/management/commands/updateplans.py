@@ -107,8 +107,18 @@ def add_ptc_plans_to_db():
             else:
                 Plan.objects.create(tdu=tdu, provider=provider, **plan_dict)
         except Exception as e:
+            print("Plan wouldn't create or update")
             print(plan_dict["ptc_idkey"])
             print(e)
+
+    for plan in Plan.objects.all():
+        try:
+            plan.save()
+        except Exception as e:
+            print("Plan wouldn't save")
+            print(plan.ptc_idkey)
+            print(e)
+            plan.delete()
 
 
 def add_charges_rates():

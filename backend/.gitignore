@@ -14,8 +14,5 @@ __pycache__
 coverage.xml
 htmlcov/
 
-# Certificates
-*.pem
-*.key
-*.crt
-*.priv
+# Google Cloud service account keys
+awesomepowertx-fd7ce60f99bb.json
