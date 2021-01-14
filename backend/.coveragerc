@@ -1,2 +1,5 @@
 [run]
 omit = */tests.py, */management/commands/*, awesomepower/wsgi.py, awesomepower/plans/providers/*
+
+[report]
+skip_covered = true
