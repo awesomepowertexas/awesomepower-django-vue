@@ -4,8 +4,7 @@ before(() => {
 
 describe('Plans page', () => {
   beforeEach(() => {
-    cy.server()
-    cy.route('GET', '/plans?zip_code=*').as('getPlans')
+    cy.intercept('GET', '/plans?zip_code=*').as('getPlans')
   })
 
   it('displays plans for valid zip codes', () => {
@@ -15,9 +14,9 @@ describe('Plans page', () => {
 
     cy.get('svg[data-icon=loading-spinner]')
 
-    cy.wait('@getPlans').should((xhr) => {
-      expect(xhr.status).to.equal(200)
-      expect(xhr.response.body).to.be.an('array').that.is.not.empty
+    cy.wait('@getPlans').should((interception) => {
+      expect(interception.response.statusCode).to.equal(200)
+      expect(interception.response.body).to.be.an('array').that.is.not.empty
     })
 
     cy.get('.plan-card:first').should(($div) => {

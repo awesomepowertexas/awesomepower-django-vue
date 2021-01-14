@@ -47,14 +47,14 @@ jobs:
       - name: Install Cypress dependencies
         run: sudo apt-get install libgbm-dev libnotify-dev
       - name: Run Cypress
-        uses: cypress-io/github-action@v2.3.6
+        uses: cypress-io/github-action@v2.7.2
         with:
           working-directory: web
           start: yarn dev
           wait-on: http://localhost:3000
           record: true
         env:
-          VITE_API_BASE_URL: http://localhost:8000
+          API_BASE_URL: http://localhost:8000
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload backend to Codecov

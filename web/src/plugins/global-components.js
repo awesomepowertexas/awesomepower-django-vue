@@ -1,10 +1,11 @@
-import globalComponents from 'globby!../components/_global/*.vue'
+import { processGlobEagerImport } from '../utils'
+const globalComponents = import.meta.globEager('../components/_global/*.vue')
 
 function registerGlobalComponents(app) {
-  for (const key in globalComponents) {
-    const component = globalComponents[key]
+  const processedGlobalComponents = processGlobEagerImport(globalComponents)
 
-    app.component(component.name, component)
+  for (const key in processedGlobalComponents) {
+    app.component(key, processedGlobalComponents[key])
   }
 }
 

@@ -4,8 +4,7 @@ before(() => {
 
 describe('Intro section', () => {
   beforeEach(() => {
-    cy.server()
-    cy.route('GET', '/plans?zip_code=*').as('getPlans')
+    cy.intercept('GET', '/plans?zip_code=*').as('getPlans')
   })
 
   it('returns plans for valid zip codes', () => {
@@ -18,9 +17,9 @@ describe('Intro section', () => {
     cy.get('#intro-section input[type=text]').should('be.disabled')
     cy.get('#intro-section button').should('not.exist')
 
-    cy.wait('@getPlans').should((xhr) => {
-      expect(xhr.status).to.equal(200)
-      expect(xhr.response.body).to.be.an('array').that.is.not.empty
+    cy.wait('@getPlans').should((interception) => {
+      expect(interception.response.statusCode).to.equal(200)
+      expect(interception.response.body).to.be.an('array').that.is.not.empty
     })
 
     cy.get('#intro-section button').should('exist')
@@ -43,9 +42,9 @@ describe('Intro section', () => {
     cy.get('#intro-section input[type=text]').should('be.disabled')
     cy.get('#intro-section button').should('not.exist')
 
-    cy.wait('@getPlans').should((xhr) => {
-      expect(xhr.status).to.equal(200)
-      expect(xhr.response.body).to.be.an('array').that.is.empty
+    cy.wait('@getPlans').should((interception) => {
+      expect(interception.response.statusCode).to.equal(200)
+      expect(interception.response.body).to.be.an('array').that.is.empty
     })
 
     cy.get('#intro-section').contains(errorMessage)
@@ -56,11 +55,9 @@ describe('Intro section', () => {
   })
 
   it('errors on server error', () => {
-    cy.route({
-      method: 'GET',
-      url: '/plans?zip_code=*',
-      status: 500,
-      response: {},
+    cy.intercept('GET', '/plans?zip_code=*', {
+      statusCode: 500,
+      body: {},
     }).as('getPlans')
 
     const zipCode = '75229'
@@ -71,8 +68,8 @@ describe('Intro section', () => {
 
     cy.get('#intro-section button').should('not.exist')
 
-    cy.wait('@getPlans').should((xhr) => {
-      expect(xhr.status).to.equal(500)
+    cy.wait('@getPlans').should((interception) => {
+      expect(interception.response.statusCode).to.equal(500)
     })
     cy.contains('Sorry, something went wrong')
   })
