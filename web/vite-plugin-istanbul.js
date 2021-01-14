@@ -1,68 +1,70 @@
-const babel = require('@babel/core')
-const BabelPluginIstanbul = require('babel-plugin-istanbul')
-const TestExclude = require('test-exclude')
+import istanbulInstrument from 'istanbul-lib-instrument'
+import { createFilter } from '@rollup/pluginutils'
 
-function createTransform(opts) {
-  let exclude
-  const plugins = [[BabelPluginIstanbul, opts]]
-  const cwd = process.cwd()
+export default function istanbul(options) {
+  const filter = createFilter(options.include, options.exclude)
 
   return {
-    test(ctx) {
-      if (ctx.isBuild || process.env.NODE_ENV == 'production') {
-        return false
-      } else if (
-        ctx.path.startsWith('/@modules/') ||
-        ctx.path.includes('node_modules')
+    name: 'istanbul',
+
+    transform(src, id) {
+      if (
+        process.env.NODE_ENV == 'production' ||
+        id.startsWith('/@modules/') ||
+        id.includes('node_modules') ||
+        !filter(id)
       ) {
-        return false
-      } else if (!exclude) {
-        exclude = new TestExclude({
-          cwd,
-          include: opts.include,
-          exclude: opts.exclude,
-          extension: opts.extension,
-          excludeNodeModules: true,
-        })
+        return
       }
 
-      return exclude.shouldInstrument(ctx.path)
-    },
-    transform(ctx) {
-      const { code, map } = babel.transformSync(ctx.code, {
-        plugins,
-        cwd,
-        ast: false,
-        sourceMaps: true,
-        filename: ctx.path,
+      let scriptSrc = src
+      let scriptStartIndex
+      let scriptEndIndex
+
+      if (id.endsWith('.vue')) {
+        scriptStartIndex = src.indexOf('<script>')
+        scriptEndIndex = src.indexOf('</script>')
+
+        if (scriptStartIndex === -1 || scriptEndIndex === -1) {
+          return
+        }
+
+        scriptStartIndex += '<script>'.length
+
+        const numNewlines = (src.slice(0, scriptStartIndex).match(/\n/g) || [])
+          .length
+        scriptSrc =
+          '\n'.repeat(numNewlines) + src.slice(scriptStartIndex, scriptEndIndex)
+      }
+
+      const instrumenter = new istanbulInstrument.createInstrumenter({
+        esModules: true,
+        compact: true,
+        produceSourceMap: true,
+        autoWrap: true,
+        preserveComments: true,
       })
 
-      return { code, map }
+      let code = instrumenter.instrumentSync(scriptSrc, id)
+
+      if (id.endsWith('.vue')) {
+        code =
+          src.slice(0, scriptStartIndex) +
+          '\n' +
+          code +
+          '\n' +
+          src.slice(scriptEndIndex)
+      }
+
+      return code
+    },
+
+    configureServer({ app }) {
+      app.use('/__coverage__', (req, res) => {
+        const coverage = global.__coverage__ || null
+
+        res.end(JSON.stringify({ coverage }))
+      })
     },
   }
 }
-
-const serverPlugin = ({ app }) => {
-  app.use(async (ctx, next) => {
-    if (ctx.path === '/__coverage__') {
-      const coverage = global.__coverage__ || null
-
-      ctx.status = 200
-      ctx.type = 'json'
-      ctx.body = { coverage }
-    } else {
-      await next()
-    }
-  })
-}
-
-function istanbulPlugin(opts) {
-  const transform = createTransform(opts)
-
-  return {
-    transforms: [transform],
-    configureServer: serverPlugin,
-  }
-}
-
-module.exports = istanbulPlugin

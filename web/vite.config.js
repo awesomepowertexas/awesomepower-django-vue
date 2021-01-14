@@ -1,12 +1,11 @@
-const istanbul = require('./vite-plugin-istanbul')
-const globbyImport = require('vite-transform-globby-import')
+import istanbul from './vite-plugin-istanbul'
+import vue from '@vitejs/plugin-vue'
 
 module.exports = {
   plugins: [
     istanbul({
-      include: 'src/*',
-      extension: ['.js', '.vue'],
+      include: ['src/**/*.js', 'src/**/*.vue'],
     }),
+    vue(),
   ],
-  transforms: [globbyImport({})],
 }

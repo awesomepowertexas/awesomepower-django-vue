@@ -9,28 +9,30 @@
     "cypress:run": "cypress run"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/vue-fontawesome": "^3.0.0-2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/vue-fontawesome": "^3.0.0-3",
     "axios": "^0.21.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "vue": "^3.0.2",
-    "vue-router": "^4.0.0-rc.3",
-    "vuex": "^4.0.0-rc.1",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.0-rc.2",
     "vuex-map-fields": "^1.4.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.8.3",
-    "@vue/compiler-sfc": "^3.0.2",
-    "babel-plugin-istanbul": "^6.0.0",
-    "cypress": "^5.6.0",
-    "eslint": "^7.13.0",
-    "eslint-config-prettier": "^6.15.0",
+    "@cypress/code-coverage": "^3.9.2",
+    "@cypress/vue": "^1.0.0-alpha.4",
+    "@rollup/pluginutils": "^4.1.0",
+    "@vitejs/plugin-vue": "^1.0.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "cypress": "^6.2.1",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-vue": "^7.1.0",
-    "prettier": "^2.1.2",
-    "vite": "^1.0.0-rc.9",
-    "vite-transform-globby-import": "^1.0.0-rc.7"
+    "eslint-plugin-vue": "^7.4.1",
+    "istanbul-lib-instrument": "^4.0.3",
+    "prettier": "^2.2.1",
+    "vite": "^2.0.0-beta.27"
   }
 }
