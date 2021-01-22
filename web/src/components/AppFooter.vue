@@ -47,7 +47,7 @@
       </div>
 
       <div class="flex-1 text-2xs text-gray-500 md:text-right mt-6 md:mt-0">
-        Copyright © 2020<br />
+        Copyright © {{ new Date().getFullYear() }}<br />
         Michael Hays
       </div>
     </div>

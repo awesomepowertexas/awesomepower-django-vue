@@ -76,7 +76,7 @@ REST_FRAMEWORK = {
 
 # django-cors-headers
 
-CORS_ORIGIN_REGEX_WHITELIST = [
+CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://([\w-]+\.)?awesomepowertexas\.com(:3000)?$",
     r"^https://(deploy-preview-[\d]+--)?awesomepower\.netlify\.app$",
     r"^http://localhost:3000$",
