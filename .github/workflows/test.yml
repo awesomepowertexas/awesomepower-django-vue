@@ -41,13 +41,13 @@ jobs:
       - name: Run pytest
         working-directory: backend
         run: poetry run pytest --cov-report=xml
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
           node-version: 14.9.0
       - name: Install Cypress dependencies
         run: sudo apt-get install libgbm-dev libnotify-dev
       - name: Run Cypress
-        uses: cypress-io/github-action@v2.7.2
+        uses: cypress-io/github-action@v2.9.7
         with:
           working-directory: web
           start: yarn dev
