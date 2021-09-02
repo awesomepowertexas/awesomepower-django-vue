@@ -132,7 +132,7 @@ jobs:
 
       - name: Start Django server
         working-directory: backend
-        run: poetry run gunicorn sirvatus.wsgi:application --daemon
+        run: poetry run gunicorn awesomepower.wsgi:application --daemon
 
       - name: Cypress end-to-end tests
         uses: cypress-io/github-action@v2
