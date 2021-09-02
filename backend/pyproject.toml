@@ -6,7 +6,7 @@ authors = ["Michael Hays <michaelhays36@gmail.com>"]
 license = "GPL-3.0"
 
 [tool.poetry.dependencies]
-python = "3.9.7"
+python = ">=3.9,<3.10"
 Django = "^3.2.7"
 django-cors-headers = "^3.8.0"
 djangorestframework = "^3.12.4"
