@@ -1,5 +1,56 @@
+<script setup lang="ts">
+import { onMounted, ref, watch } from 'vue'
+import api from '~/plugins/api'
+import global from '~/global'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const zipCode = ref('')
+const loading = ref(false)
+const apiError = ref(false)
+const input = ref(null)
+
+watch(zipCode, async () => {
+  global.plans = []
+  apiError.value = false
+
+  if (zipCode.value.length === 5) {
+    loading.value = true
+
+    let response
+    try {
+      response = await api.get(`/plans?zip_code=${zipCode.value}`)
+    } catch (error) {
+      apiError.value = true
+      loading.value = false
+      return
+    }
+
+    global.plans = response.data
+    loading.value = false
+  }
+})
+
+onMounted(() => {
+  input.value.focus()
+})
+
+function onlyNumber($event) {
+  if ($event.key < '0' || $event.key > '9') {
+    $event.preventDefault()
+  }
+}
+
+function viewPlans() {
+  if (global.plans.length > 0) {
+    router.push(`/plans/${zipCode.value}`)
+  }
+}
+</script>
+
 <template>
-  <div class="w-full max-w-md bg-blue-800 text-center rounded-xl shadow p-5">
+  <div class="w-full max-w-md bg-blue-900 text-center rounded-lg shadow p-5">
     <p
       class="h-10 flex items-center justify-center font-solway font-bold text-white md:text-xl uppercase"
     >
@@ -11,7 +62,7 @@
       v-model="zipCode"
       :disabled="loading"
       type="text"
-      class="w-56 h-16 rounded-lg text-3xl text-gray-800 font-solway font-light text-center my-4"
+      class="my-4 w-56 h-16 rounded text-3xl text-center text-gray-800 font-solway font-light"
       placeholder="12345"
       maxlength="5"
       @keypress="onlyNumber"
@@ -20,17 +71,17 @@
 
     <div class="h-10 relative">
       <template v-if="zipCode.length === 5">
-        <transition name="fade">
+        <Transition name="fade">
           <div
             v-if="loading"
             key="loading"
             class="absolute w-full h-full flex items-center justify-center"
           >
-            <loading-spinner class="text-white" />
+            <LoadingSpinner class="text-white" />
           </div>
 
           <div
-            v-else-if="error"
+            v-else-if="apiError"
             key="error"
             class="absolute w-full h-full flex items-center justify-center"
           >
@@ -42,7 +93,7 @@
           </div>
 
           <div
-            v-else-if="plans.length === 0"
+            v-else-if="global.plans.length === 0"
             key="no-plans"
             class="absolute w-full h-full flex items-center justify-center"
           >
@@ -59,76 +110,13 @@
             class="absolute w-full h-full flex items-center justify-center"
           >
             <router-link :to="`/plans/${zipCode}`">
-              <app-button class="btn-green">
-                View {{ plans.length }} plans
-              </app-button>
+              <AppButton class="btn-green">
+                View {{ global.plans.length }} plans
+              </AppButton>
             </router-link>
           </div>
-        </transition>
+        </Transition>
       </template>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data: function () {
-    return {
-      loading: false,
-
-      zipCode: '',
-      plans: [],
-      error: false,
-    }
-  },
-
-  watch: {
-    zipCode() {
-      this.plans = []
-      this.error = false
-
-      if (this.zipCode.length === 5) {
-        this.getPlans()
-      }
-    },
-  },
-
-  mounted() {
-    this.$refs.input.focus()
-  },
-
-  methods: {
-    onlyNumber($event) {
-      if ($event.key < '0' || $event.key > '9') {
-        $event.preventDefault()
-      }
-    },
-
-    async getPlans() {
-      this.loading = true
-
-      let response
-      try {
-        response = await this.$api.get(`/plans?zip_code=${this.zipCode}`)
-      } catch (error) {
-        this.error = true
-        this.loading = false
-        return
-      }
-
-      this.plans = response.data
-      this.$store.commit('plans/updateField', {
-        path: 'plans',
-        value: this.plans,
-      })
-      this.loading = false
-    },
-
-    viewPlans() {
-      if (this.plans.length > 0) {
-        this.$router.push(`/plans/${this.zipCode}`)
-      }
-    },
-  },
-}
-</script>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useHead } from '@vueuse/head'
+
+useHead({ title: 'Privacy Policy' })
+</script>
+
 <template>
   <div class="pt-20 md:pt-48 px-4 pb-8 md:pb-20">
     <div class="w-full max-w-2xl mx-auto">
@@ -303,14 +309,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  head: {
-    title: 'Privacy Policy',
-  },
-}
-</script>
 
 <style scoped lang="postcss">
 p,

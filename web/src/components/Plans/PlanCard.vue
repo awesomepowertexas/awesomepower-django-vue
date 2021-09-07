@@ -1,5 +1,26 @@
+<script setup lang="ts">
+import StarGroup from '~/components/Plans/StarGroup.vue'
+import { computed } from 'vue'
+
+const props = defineProps({
+  plan: Object,
+  orderBy: String,
+})
+
+const _emits = defineEmits(['reorder'])
+
+const mainUsageRate = computed(() => {
+  if (props.orderBy === 'low') {
+    return props.plan.low_usage_rate
+  } else if (props.orderBy === 'med') {
+    return props.plan.medium_usage_rate
+  }
+  return props.plan.high_usage_rate
+})
+</script>
+
 <template>
-  <div class="plan-card bg-white rounded-xl shadow p-4 md:p-6">
+  <div class="plan-card bg-white rounded shadow p-4 md:p-6">
     <!-- Desktop -->
     <div class="hidden md:flex">
       <div class="w-40 flex-shrink-0 flex flex-col items-center">
@@ -9,7 +30,7 @@
           class="w-40 h-24 object-contain mt-4"
         />
 
-        <star-group :rating="plan.provider.rating" class="mt-2" />
+        <StarGroup :rating="plan.provider.rating" class="mt-2" />
       </div>
 
       <div class="flex-grow flex flex-col ml-4">
@@ -29,7 +50,7 @@
 
         <div class="flex items-center mt-4">
           <a :href="plan.enroll_url" target="_blank">
-            <app-button class="btn-green">Sign up</app-button>
+            <AppButton class="btn-green">Sign up</AppButton>
           </a>
 
           <a :href="plan.facts_url" class="text-blue-600 ml-6" target="_blank">
@@ -111,7 +132,7 @@
             class="w-40 h-24 object-contain"
           />
 
-          <star-group :rating="plan.provider.rating" class="mt-4" />
+          <StarGroup :rating="plan.provider.rating" class="mt-4" />
         </div>
 
         <div class="flex-1 text-sm ml-6">
@@ -194,36 +215,8 @@
       </div>
 
       <a :href="plan.enroll_url" target="_blank" class="mt-8">
-        <app-button class="btn-green w-full">Sign up</app-button>
+        <AppButton class="btn-green w-full">Sign up</AppButton>
       </a>
     </div>
   </div>
 </template>
-
-<script>
-import StarGroup from '/src/components/Plans/StarGroup.vue'
-
-export default {
-  components: {
-    StarGroup,
-  },
-
-  props: {
-    plan: Object,
-    orderBy: String,
-  },
-
-  emits: ['reorder'],
-
-  computed: {
-    mainUsageRate() {
-      if (this.orderBy === 'low') {
-        return this.plan.low_usage_rate
-      } else if (this.orderBy === 'med') {
-        return this.plan.medium_usage_rate
-      }
-      return this.plan.high_usage_rate
-    },
-  },
-}
-</script>

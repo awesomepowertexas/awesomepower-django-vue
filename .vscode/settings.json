@@ -41,7 +41,6 @@
   "python.linting.pylintEnabled": true,
   "python.sortImports.args": ["--src-path=${workspaceFolder}/backend"],
   "python.terminal.activateEnvironment": false,
-  "python.testing.nosetestsEnabled": false,
   "python.testing.pytestArgs": ["backend", "--no-cov", "-s"],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false

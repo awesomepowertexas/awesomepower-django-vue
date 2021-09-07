@@ -1,5 +1,5 @@
-import istanbulInstrument from 'istanbul-lib-instrument'
 import { createFilter } from '@rollup/pluginutils'
+import istanbulInstrument from 'istanbul-lib-instrument'
 
 export default function istanbul(options) {
   const filter = createFilter(options.include, options.exclude)

@@ -1,3 +1,11 @@
+<script setup>
+const _props = defineProps({
+  isOpen: Boolean,
+})
+
+const _emits = defineEmits(['toggle'])
+</script>
+
 <template>
   <div>
     <div
@@ -30,13 +38,3 @@
     </transition-expand>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    isOpen: Boolean,
-  },
-
-  emits: ['toggle'],
-}
-</script>

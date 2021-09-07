@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import SvgStar from '~/assets/svg/star.vue'
+
+const props = defineProps({
+  rating: Number,
+  editable: {
+    type: Boolean,
+    default: false,
+  },
+  lightFill: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const _emits = defineEmits(['update:rating'])
+
+const hovered = ref(null)
+
+const filled = computed(() => {
+  return hovered.value || props.rating
+})
+</script>
+
 <template>
   <div class="flex">
     <svg-star
@@ -11,46 +36,10 @@
       class="h-6"
       @mouseenter="editable ? (hovered = index) : null"
       @mouseleave="editable ? (hovered = null) : null"
-      @click="editable ? $emit('set-rating', index) : null"
+      @click="editable ? $emit('update:rating', index) : null"
     />
   </div>
 </template>
-
-<script>
-import SvgStar from '/src/assets/svg/star.vue'
-
-export default {
-  components: {
-    SvgStar,
-  },
-
-  props: {
-    rating: Number,
-    editable: {
-      type: Boolean,
-      default: false,
-    },
-    lightFill: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
-  emits: ['set-rating'],
-
-  data: function () {
-    return {
-      hovered: null,
-    }
-  },
-
-  computed: {
-    filled() {
-      return this.hovered || this.rating
-    },
-  },
-}
-</script>
 
 <style scoped lang="postcss">
 .filled {
