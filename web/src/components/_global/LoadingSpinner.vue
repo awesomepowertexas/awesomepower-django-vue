@@ -1,3 +1,12 @@
+<script setup lang="ts">
+const _props = defineProps({
+  size: {
+    type: Number,
+    default: 20,
+  },
+})
+</script>
+
 <template>
   <svg
     viewBox="0 0 100 100"
@@ -27,16 +36,3 @@
     </circle>
   </svg>
 </template>
-
-<script>
-export default {
-  name: 'LoadingSpinner',
-
-  props: {
-    size: {
-      type: Number,
-      default: 20,
-    },
-  },
-}
-</script>

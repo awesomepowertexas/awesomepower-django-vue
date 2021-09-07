@@ -5,7 +5,7 @@
 
       <div class="mt-4">
         <router-link to="/">
-          <app-button class="btn-blue">Back to Home</app-button>
+          <AppButton class="btn-blue">Back to Home</AppButton>
         </router-link>
       </div>
     </div>

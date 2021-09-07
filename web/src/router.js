@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Landing from '/src/pages/index.vue'
-import Privacy from '/src/pages/privacy.vue'
-import Terms from '/src/pages/terms.vue'
-import Plans from '/src/pages/plans/_zip_code/index.vue'
-import NotFound from '/src/pages/[not-found].vue'
+import Landing from '~/pages/index.vue'
+import NotFound from '~/pages/[not-found].vue'
+import Plans from '~/pages/plans/_zip_code/index.vue'
+import Privacy from '~/pages/privacy.vue'
+import Terms from '~/pages/terms.vue'
 
 const router = createRouter({
   history: createWebHistory(),

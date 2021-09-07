@@ -1,18 +1,13 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import api from './plugins/api'
-import registerGlobalComponents from './plugins/global-components'
 import './index.css'
+import App from './App.vue'
+import { createApp } from 'vue'
+import { createHead } from '@vueuse/head'
+import router from './router'
 
 const app = createApp(App)
+const head = createHead()
 
 app.use(router)
-app.use(store)
-
-app.config.globalProperties.$api = api
-
-registerGlobalComponents(app)
+app.use(head)
 
 app.mount('#app')

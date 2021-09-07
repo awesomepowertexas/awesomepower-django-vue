@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const _props = defineProps({
+  loading: Boolean,
+})
+</script>
+
 <template>
   <button
     :disabled="loading"
@@ -5,19 +11,9 @@
   >
     <slot v-if="!loading" />
 
-    <loading-spinner v-else />
+    <LoadingSpinner v-else />
   </button>
 </template>
-
-<script>
-export default {
-  name: 'AppButton',
-
-  props: {
-    loading: Boolean,
-  },
-}
-</script>
 
 <style scoped lang="postcss">
 button:disabled {
