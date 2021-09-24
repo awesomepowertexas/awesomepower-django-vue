@@ -5857,6 +5857,14 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vite-plugin-istanbul@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-istanbul/-/vite-plugin-istanbul-2.2.0.tgz#26d6248b50093de99c31754b9ff22a7b9f7b35f2"
+  integrity sha512-kcQV/pnYoryslh6q+kywf068LqrsBlEcg9tdMh/ISSXfC7SHhZguDAgdSSdE06v0/diZrrEOw/jTUzhp59TTFQ==
+  dependencies:
+    istanbul-lib-instrument "^4.0.3"
+    test-exclude "^6.0.0"
+
 vite@^2.5.3:
   version "2.5.4"
   resolved "https://registry.npmjs.org/vite/-/vite-2.5.4.tgz"

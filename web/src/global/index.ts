@@ -15,6 +15,7 @@ function getDefaultState(): Global {
      * This must be done without reassigning global, in order to retain its
      * reactivity.
      */
+    /* istanbul ignore next */
     resetState() {
       global = this
 
