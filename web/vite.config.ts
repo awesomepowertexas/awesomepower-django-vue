@@ -1,4 +1,5 @@
-import ViteComponents from 'vite-plugin-components'
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vite'
 import istanbul from './vite-plugin-istanbul'
 import path from 'path'
@@ -16,9 +17,10 @@ export default defineConfig({
       include: ['src/**/*.js', 'src/**/*.vue'],
     }),
     vue(),
-    ViteComponents({
+    Components({
       dirs: ['src/components/_global'],
-      globalComponentsDeclaration: true,
+      dts: true,
     }),
+    Icons({ compiler: 'vue3' }),
   ],
 })

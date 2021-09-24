@@ -1,7 +1,13 @@
+import { Plugin } from 'vite'
 import { createFilter } from '@rollup/pluginutils'
-import istanbulInstrument from 'istanbul-lib-instrument'
+import { createInstrumenter } from 'istanbul-lib-instrument'
 
-export default function istanbul(options) {
+interface Options {
+  include?: string | RegExp | (string | RegExp)[]
+  exclude?: string | RegExp | (string | RegExp)[]
+}
+
+export default function istanbul(options: Options): Plugin {
   const filter = createFilter(options.include, options.exclude)
 
   return {
@@ -37,7 +43,7 @@ export default function istanbul(options) {
           '\n'.repeat(numNewlines) + src.slice(scriptStartIndex, scriptEndIndex)
       }
 
-      const instrumenter = new istanbulInstrument.createInstrumenter({
+      const instrumenter = createInstrumenter({
         esModules: true,
         compact: true,
         produceSourceMap: true,
@@ -59,8 +65,8 @@ export default function istanbul(options) {
       return code
     },
 
-    configureServer({ app }) {
-      app.use('/__coverage__', (req, res) => {
+    configureServer({ middlewares }) {
+      middlewares.use('/__coverage__', (req, res) => {
         const coverage = global.__coverage__ || null
 
         res.end(JSON.stringify({ coverage }))
