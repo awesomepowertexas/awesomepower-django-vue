@@ -14,7 +14,7 @@ export default defineConfig({
 
   plugins: [
     istanbul({
-      include: ['src/**/*.js', 'src/**/*.vue'],
+      include: ['src/**/*.ts', 'src/**/*.vue'],
     }),
     vue(),
     Components({

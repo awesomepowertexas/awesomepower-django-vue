@@ -2,6 +2,7 @@
 import Filter from '~/components/Plans/Filter.vue'
 import PlanList from '~/components/Plans/PlanList.vue'
 import { ref } from 'vue'
+import { termOptions } from '~/types'
 import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
 
@@ -10,10 +11,8 @@ useHead({ title: 'Plans' })
 const route = useRoute()
 
 // Filter options
-const termOptions = ['All', 1, 3, 6, 12, 18, 24, 36] as const
-type TermOptions = typeof termOptions[number]
 const rating = ref(1)
-const term = ref<TermOptions>(12)
+const term = ref<typeof termOptions[number]>(12)
 const renewable = ref(false)
 </script>
 
@@ -30,7 +29,6 @@ const renewable = ref(false)
         v-model:rating="rating"
         v-model:term="term"
         v-model:renewable="renewable"
-        :term-options="termOptions"
       />
 
       <PlanList :rating="rating" :term="term" :renewable="renewable" />

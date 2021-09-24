@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import IconChevronCircleDown from '~icons/fa/chevron-circle-down'
 
-const _props = defineProps({
-  isOpen: Boolean,
-})
+const _props = defineProps<{
+  isOpen: boolean
+}>()
 
-const _emits = defineEmits(['toggle'])
+const _emits = defineEmits<{
+  (e: 'toggle'): void
+}>()
 </script>
 
 <template>

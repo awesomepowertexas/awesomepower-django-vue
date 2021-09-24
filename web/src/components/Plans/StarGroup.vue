@@ -2,24 +2,25 @@
 import { computed, ref } from 'vue'
 import SvgStar from '~/assets/svg/star.vue'
 
-const props = defineProps({
-  rating: Number,
-  editable: {
-    type: Boolean,
-    default: false,
-  },
-  lightFill: {
-    type: Boolean,
-    default: false,
-  },
+interface Props {
+  rating: number
+  editable?: boolean
+  lightFill?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  editable: false,
+  lightFill: false,
 })
 
-const _emits = defineEmits(['update:rating'])
+const _emits = defineEmits<{
+  (e: 'update:rating', rating: number): void
+}>()
 
-const hovered = ref(null)
+const activeHoverIndex = ref(-1)
 
 const filled = computed(() => {
-  return hovered.value || props.rating
+  return activeHoverIndex.value !== -1 ? activeHoverIndex.value : props.rating
 })
 </script>
 
@@ -34,8 +35,8 @@ const filled = computed(() => {
         lightFill ? 'light-fill' : '',
       ]"
       class="h-6"
-      @mouseenter="editable ? (hovered = index) : null"
-      @mouseleave="editable ? (hovered = null) : null"
+      @mouseenter="editable ? (activeHoverIndex = index) : null"
+      @mouseleave="editable ? (activeHoverIndex = -1) : null"
       @click="editable ? $emit('update:rating', index) : null"
     />
   </div>

@@ -12,7 +12,7 @@ const route = useRoute()
 onMounted(() => {
   if (route.hash === '#faqs') {
     setTimeout(() => {
-      document.getElementById('faqs').scrollIntoView({ behavior: 'smooth' })
+      document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth' })
     })
   }
 })

@@ -6,7 +6,7 @@ const router = useRouter()
 
 function navigateToFaqs() {
   if (route.path === '/') {
-    document.getElementById('faqs').scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth' })
   } else {
     router.push({ path: '/', hash: '#faqs' })
   }

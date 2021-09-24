@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import AppFooter from '~/components/_layouts/AppFooter.vue'
 import AppHeader from '~/components/_layouts/AppHeader.vue'
 </script>

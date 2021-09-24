@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const _props = defineProps({
-  size: {
-    type: Number,
-    default: 20,
-  },
+interface Props {
+  size?: number
+}
+
+const _props = withDefaults(defineProps<Props>(), {
+  size: 20,
 })
 </script>
 

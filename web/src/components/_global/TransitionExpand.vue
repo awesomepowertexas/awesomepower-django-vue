@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Full explanation: https://markus.oberlehner.net/blog/transition-to-height-auto-with-vue/
-function enter(element) {
+function enter(element: HTMLElement) {
   const { width } = getComputedStyle(element)
 
   element.style.width = width
@@ -10,10 +10,10 @@ function enter(element) {
 
   const { height } = getComputedStyle(element)
 
-  element.style.width = null
-  element.style.position = null
-  element.style.visibility = null
-  element.style.height = 0
+  element.style.width = ''
+  element.style.position = ''
+  element.style.visibility = ''
+  element.style.height = '0'
 
   // Force repaint to make sure the animation is triggered correctly.
   getComputedStyle(element).height // eslint-disable-line no-unused-expressions
@@ -26,11 +26,11 @@ function enter(element) {
   })
 }
 
-function afterEnter(element) {
+function afterEnter(element: HTMLElement) {
   element.style.height = 'auto'
 }
 
-function leave(element) {
+function leave(element: HTMLElement) {
   const { height } = getComputedStyle(element)
 
   element.style.height = height
@@ -39,7 +39,7 @@ function leave(element) {
   getComputedStyle(element).height // eslint-disable-line no-unused-expressions
 
   setTimeout(() => {
-    element.style.height = 0
+    element.style.height = '0'
   })
 }
 </script>
