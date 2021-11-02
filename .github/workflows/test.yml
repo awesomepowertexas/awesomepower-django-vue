@@ -158,4 +158,4 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           files: ./web/coverage/coverage-final.json
-          fail_ci_if_error: true
+          fail_ci_if_error: false # Coverage file may not exist
