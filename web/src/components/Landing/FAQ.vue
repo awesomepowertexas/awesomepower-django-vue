@@ -1,9 +1,13 @@
-<script setup>
-const _props = defineProps({
-  isOpen: Boolean,
-})
+<script setup lang="ts">
+import IconChevronCircleDown from '~icons/fa/chevron-circle-down'
 
-const _emits = defineEmits(['toggle'])
+const _props = defineProps<{
+  isOpen: boolean
+}>()
+
+const _emits = defineEmits<{
+  (e: 'toggle'): void
+}>()
 </script>
 
 <template>
@@ -12,11 +16,10 @@ const _emits = defineEmits(['toggle'])
       class="faq-question flex items-start cursor-pointer mt-6"
       @click="$emit('toggle')"
     >
-      <div class="w-8 flex-shrink-0 md:pt-1">
-        <font-awesome-icon
+      <div class="w-8 flex-shrink-0 md:pt-1.5">
+        <IconChevronCircleDown
           :class="{ 'transform -rotate-180': isOpen }"
-          class="text-blue-500 transition"
-          icon="chevron-circle-down"
+          class="text-sm text-blue-500 transition"
         />
       </div>
 

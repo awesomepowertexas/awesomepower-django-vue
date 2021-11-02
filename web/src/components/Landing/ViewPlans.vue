@@ -9,7 +9,7 @@ const router = useRouter()
 const zipCode = ref('')
 const loading = ref(false)
 const apiError = ref(false)
-const input = ref(null)
+const input = ref<HTMLElement>()
 
 watch(zipCode, async () => {
   global.plans = []
@@ -33,10 +33,10 @@ watch(zipCode, async () => {
 })
 
 onMounted(() => {
-  input.value.focus()
+  input.value?.focus()
 })
 
-function onlyNumber($event) {
+function onlyNumber($event: KeyboardEvent) {
   if ($event.key < '0' || $event.key > '9') {
     $event.preventDefault()
   }

@@ -24,7 +24,6 @@ scipy = "^1.7.1"
 [tool.poetry.dev-dependencies]
 black = "^21.8b0"
 ptpython = "^3.0.19"
-pylint = "^2.10.2"
 pytest = "^6.2.5"
 pytest-cov = "^2.12.1"
 pytest-django = "^4.4.0"

@@ -1,13 +1,18 @@
 <script setup lang="ts">
+import { Plan } from '~/types'
 import StarGroup from '~/components/Plans/StarGroup.vue'
 import { computed } from 'vue'
 
-const props = defineProps({
-  plan: Object,
-  orderBy: String,
-})
+type OrderBy = 'low' | 'med' | 'high'
 
-const _emits = defineEmits(['reorder'])
+const props = defineProps<{
+  plan: Plan
+  orderBy: string
+}>()
+
+const _emits = defineEmits<{
+  (e: 'reorder', orderBy: OrderBy): void
+}>()
 
 const mainUsageRate = computed(() => {
   if (props.orderBy === 'low') {
@@ -77,8 +82,8 @@ const mainUsageRate = computed(() => {
               {{
                 (
                   (orderBy === 'low'
-                    ? plan.medium_usage_rate
-                    : plan.low_usage_rate) * 100
+                    ? parseFloat(plan.medium_usage_rate)
+                    : parseFloat(plan.low_usage_rate)) * 100
                 ).toFixed(1)
               }}¢
             </p>
@@ -96,8 +101,8 @@ const mainUsageRate = computed(() => {
               {{
                 (
                   (orderBy === 'high'
-                    ? plan.medium_usage_rate
-                    : plan.high_usage_rate) * 100
+                    ? parseFloat(plan.medium_usage_rate)
+                    : parseFloat(plan.high_usage_rate)) * 100
                 ).toFixed(1)
               }}¢
             </p>
@@ -110,7 +115,7 @@ const mainUsageRate = computed(() => {
           </p>
 
           <p class="font-solway font-light text-5xl">
-            {{ (mainUsageRate * 100).toFixed(1) }}¢
+            {{ (parseFloat(mainUsageRate) * 100).toFixed(1) }}¢
           </p>
 
           <p class="font-bold text-gray-500 text-xs uppercase">per kWh</p>
@@ -174,8 +179,8 @@ const mainUsageRate = computed(() => {
               {{
                 (
                   (orderBy === 'low'
-                    ? plan.medium_usage_rate
-                    : plan.low_usage_rate) * 100
+                    ? parseFloat(plan.medium_usage_rate)
+                    : parseFloat(plan.low_usage_rate)) * 100
                 ).toFixed(1)
               }}¢
             </p>
@@ -193,8 +198,8 @@ const mainUsageRate = computed(() => {
               {{
                 (
                   (orderBy === 'high'
-                    ? plan.medium_usage_rate
-                    : plan.high_usage_rate) * 100
+                    ? parseFloat(plan.medium_usage_rate)
+                    : parseFloat(plan.high_usage_rate)) * 100
                 ).toFixed(1)
               }}¢
             </p>
@@ -207,7 +212,7 @@ const mainUsageRate = computed(() => {
           </p>
 
           <p class="font-solway font-light text-5xl">
-            {{ (mainUsageRate * 100).toFixed(1) }}¢
+            {{ (parseFloat(mainUsageRate) * 100).toFixed(1) }}¢
           </p>
 
           <p class="font-bold text-gray-500 text-xs uppercase">per kWh</p>

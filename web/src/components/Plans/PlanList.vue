@@ -3,17 +3,18 @@ import { computed, onMounted, ref, watchEffect } from 'vue'
 import PlanCard from '~/components/Plans/PlanCard.vue'
 import api from '~/plugins/api'
 import global from '~/global'
+import { termOptions } from '~/types'
 import { useRoute } from 'vue-router'
 
-const props = defineProps({
-  rating: Number,
-  term: [Number, String],
-  renewable: Boolean,
-})
+const props = defineProps<{
+  rating: number
+  term: typeof termOptions[number]
+  renewable: boolean
+}>()
 
 const route = useRoute()
 
-const planList = ref(null)
+const planList = ref<HTMLElement>()
 const loading = ref(true)
 const orderBy = ref('med')
 
@@ -23,7 +24,7 @@ const filteredPlans = computed(() => {
 
   plans = plans
     .filter((o) => o.provider.rating >= props.rating)
-    .filter((o) => (props.term === 'All' ? o : o.term === parseInt(props.term)))
+    .filter((o) => (props.term === 'All' ? o : o.term === props.term))
     .filter((o) => (props.renewable ? o.percent_renewable >= 99 : o))
 
   // no prepaid plans
@@ -53,7 +54,7 @@ watchEffect(() => {
   filteredPlans.value
 
   setTimeout(() => {
-    if (planList.value) {
+    if (planList.value?.parentElement) {
       const { height } = getComputedStyle(planList.value)
       planList.value.parentElement.style.height = height
     }

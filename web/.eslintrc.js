@@ -30,7 +30,7 @@ module.exports = {
       'error',
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
-    'sort-imports': 2,
+    'sort-imports': 'error',
     'vue/html-self-closing': ['error', { html: { void: 'any' } }],
     'vue/require-default-prop': 'off',
   },

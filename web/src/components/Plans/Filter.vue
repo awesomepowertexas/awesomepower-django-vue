@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import StarGroup from '~/components/Plans/StarGroup.vue'
+import { termOptions } from '~/types'
 import { useVModels } from '@vueuse/core'
 
-const props = defineProps({
-  rating: Number,
-  term: [Number, String],
-  renewable: Boolean,
-  termOptions: Array,
-})
+const props = defineProps<{
+  rating: number
+  term: typeof termOptions[number]
+  renewable: boolean
+}>()
 
-const emits = defineEmits(['update:rating', 'update:term', 'update:renewable'])
+const emits = defineEmits<{
+  (e: 'update:rating', rating: number): void
+  (e: 'update:term', term: typeof termOptions[number]): void
+  (e: 'update:renewable', renewable: boolean): void
+}>()
 
 const { rating, term, renewable } = useVModels(props, emits)
 </script>
