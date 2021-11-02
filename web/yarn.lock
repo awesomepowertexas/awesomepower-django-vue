@@ -934,29 +934,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@types/babel-types@*":
-  version "7.0.11"
-  resolved "https://registry.npmjs.org/@types/babel-types/-/babel-types-7.0.11.tgz"
-  integrity sha512-pkPtJUUY+Vwv6B1inAz55rQvivClHJxc9aVEPPmaq2cbyeMLCiDpbKpcKyX4LAwpNGi+SHBv0tHv6+0gXv0P2A==
-
 "@types/estree@^0.0.48":
   version "0.0.48"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-0.0.48.tgz"
   integrity sha512-LfZwXoGUDo0C3me81HXgkBg5CTQYb6xzEl+fNmbO4JdRiSKQ8A0GD1OBBvKAIsbCUgoyAty7m99GqqMQe784ew==
-
-"@types/istanbul-lib-coverage@*":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz"
-  integrity sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw==
-
-"@types/istanbul-lib-instrument@^1.7.4":
-  version "1.7.4"
-  resolved "https://registry.npmjs.org/@types/istanbul-lib-instrument/-/istanbul-lib-instrument-1.7.4.tgz"
-  integrity sha512-1i1VVkU2KrpZCmti+t5J/zBb2KLKxHgU1EYL+0QtnDnVyZ59aSKcpnG6J0I6BZGDON566YzPNIlNfk7m+9l1JA==
-  dependencies:
-    "@types/babel-types" "*"
-    "@types/istanbul-lib-coverage" "*"
-    source-map "^0.6.1"
 
 "@types/json-schema@^7.0.7":
   version "7.0.9"
