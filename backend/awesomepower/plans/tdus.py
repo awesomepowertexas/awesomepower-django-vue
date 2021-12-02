@@ -6,26 +6,26 @@ TDUS = [
     {
         "name": "AEP Central",
         "ptc_name": "AEP TEXAS CENTRAL COMPANY",
-        "charges": [Decimal("5.88"), Decimal("4.79"), Decimal("4.27")],
-        "rates": [Decimal("0.040936"), Decimal("0.045504")],
+        "charges": [Decimal("5.88"), Decimal("4.79")],
+        "rates": [Decimal("0.045174"), Decimal("0.040936")],
     },
     {
         "name": "AEP North",
         "ptc_name": "AEP TEXAS NORTH COMPANY",
-        "charges": [Decimal("5.88"), Decimal("4.79"), Decimal("3.57")],
-        "rates": [Decimal("0.041426"), Decimal("0.036048")],
+        "charges": [Decimal("5.88"), Decimal("4.79")],
+        "rates": [Decimal("0.041096"), Decimal("0.041426")],
     },
     {
         "name": "Centerpoint",
         "ptc_name": "CENTERPOINT ENERGY HOUSTON ELECTRIC LLC",
         "charges": [Decimal("4.39")],
-        "rates": [Decimal("0.045727"), Decimal("0.046029")],
+        "rates": [Decimal("0.046397"), Decimal("0.046356")],
     },
     {
         "name": "Oncor",
         "ptc_name": "ONCOR ELECTRIC DELIVERY COMPANY",
         "charges": [Decimal("3.42")],
-        "rates": [Decimal("0.041543"), Decimal("0.034928")],
+        "rates": [Decimal("0.041114"), Decimal("0.041543")],
     },
     {
         "name": "TNMP",
