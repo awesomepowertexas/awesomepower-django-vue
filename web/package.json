@@ -5,36 +5,37 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview --port 3000"
+    "serve": "vite preview --port 3000",
+    "test": "cypress run"
   },
   "dependencies": {
-    "@vueuse/core": "^6.7.4",
-    "@vueuse/head": "^0.6.0",
+    "@vueuse/core": "^7.1.2",
+    "@vueuse/head": "^0.7.2",
     "axios": "^0.24.0",
-    "vue": "^3.2.21",
+    "vue": "^3.2.23",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.11",
-    "@cypress/vue": "^3.0.3",
-    "@iconify/json": "^1.1.422",
-    "@typescript-eslint/eslint-plugin": "^5.3.0",
-    "@typescript-eslint/parser": "^5.3.0",
-    "@vitejs/plugin-vue": "^1.9.4",
-    "@vue/compiler-sfc": "^3.2.21",
+    "@cypress/code-coverage": "^3.9.12",
+    "@cypress/vue": "^3.0.5",
+    "@iconify/json": "^1.1.437",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "@vitejs/plugin-vue": "^1.10.1",
+    "@vue/compiler-sfc": "^3.2.23",
     "autoprefixer": "^10.4.0",
-    "cypress": "^8.7.0",
-    "eslint": "^8.1.0",
+    "cypress": "9.0.0",
+    "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-vue": "^8.0.3",
-    "postcss": "^8.3.11",
-    "prettier": "2.4.1",
+    "eslint-plugin-vue": "^8.1.1",
+    "postcss": "^8.4.4",
+    "prettier": "2.5.0",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.4.4",
-    "unplugin-icons": "^0.12.17",
-    "unplugin-vue-components": "^0.17.0",
-    "vite": "^2.6.13",
-    "vite-plugin-istanbul": "^2.2.2"
+    "typescript": "^4.5.2",
+    "unplugin-icons": "^0.12.22",
+    "unplugin-vue-components": "^0.17.2",
+    "vite": "^2.6.14",
+    "vite-plugin-istanbul": "^2.3.0"
   }
 }
