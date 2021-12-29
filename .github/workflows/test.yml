@@ -6,7 +6,6 @@ env:
   DATABASE_URL: postgres://awesomepower:awesomepower@localhost:5432/awesomepower
   DJANGO_DEBUG: "TRUE"
   DJANGO_SECRET_KEY: dev
-  VITE_INSTRUMENT_CODE: "TRUE"
 
 jobs:
   pytest:
@@ -101,6 +100,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6
+          run_install: true
+
       - uses: actions/setup-python@v2
         with:
           # Don't include patch number so we can leverage the cache
@@ -143,8 +147,9 @@ jobs:
       - name: Cypress end-to-end tests
         uses: cypress-io/github-action@v2
         with:
+          install: false
           working-directory: web
-          start: yarn dev
+          start: pnpm dev
           wait-on: http://localhost:3000
           record: true
           parallel: true

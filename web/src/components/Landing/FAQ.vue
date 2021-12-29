@@ -18,7 +18,7 @@ const _emits = defineEmits<{
     >
       <div class="w-8 flex-shrink-0 md:pt-1.5">
         <IconChevronCircleDown
-          :class="{ 'transform -rotate-180': isOpen }"
+          :class="{ '-rotate-180': isOpen }"
           class="text-sm text-blue-500 transition"
         />
       </div>

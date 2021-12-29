@@ -1,34 +1,20 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
+  "[css][graphql][html][javascript][javascriptreact][json][jsonc][markdown][typescript][typescriptreact][vue][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.tabSize": 4,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
-  },
-  "[svg]": {
-    "editor.tabSize": 2
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.tabSize": 4
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.addMissingImports": true,
+    "source.fixAll": true,
+    "source.organizeImports": true
   },
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "eslint.packageManager": "yarn",
-  "eslint.validate": ["javascript", "vue"],
+  "eslint.packageManager": "pnpm",
   "git.autofetch": true,
-  "npm.packageManager": "yarn",
+  "npm.packageManager": "pnpm",
   "python.analysis.extraPaths": ["backend"],
   "python.envFile": "${workspaceFolder}/backend/.env",
   "python.formatting.provider": "black",

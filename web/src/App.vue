@@ -8,7 +8,7 @@ import AppHeader from '~/components/_layouts/AppHeader.vue'
 
   <router-view v-slot="{ Component }" class="min-h-screen -mt-12 md:-mt-24">
     <Transition name="fade" mode="out-in">
-      <Component :is="Component" />
+      <component :is="Component" />
     </Transition>
   </router-view>
 
