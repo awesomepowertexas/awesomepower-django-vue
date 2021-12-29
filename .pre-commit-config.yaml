@@ -4,15 +4,8 @@ default_stages:
   - commit
 fail_fast: true
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
-    hooks:
-      - id: no-commit-to-branch
-        args:
-          - "--branch"
-          - "main"
   - repo: https://github.com/psf/black
-    rev: 21.8b0
+    rev: 21.11b1
     hooks:
       - id: black
   - repo: https://gitlab.com/pycqa/flake8
@@ -22,7 +15,7 @@ repos:
         args:
           - "--ignore=E203,E501,W503"
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.32.0
+    rev: v8.5.0
     hooks:
       - id: eslint
         types:
@@ -36,12 +29,12 @@ repos:
           - "--ignore-path"
           - "web/.gitignore"
         additional_dependencies:
-          - "eslint@7.32.0"
-          - "eslint-plugin-vue@7.17.0"
+          - "eslint@8.5.0"
+          - "eslint-plugin-vue@8.2.0"
           - "eslint-config-prettier@8.3.0"
-          - "eslint-plugin-cypress@2.11.3"
+          - "eslint-plugin-cypress@2.12.1"
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.2.1
+    rev: v2.5.1
     hooks:
       - id: prettier
         args:
